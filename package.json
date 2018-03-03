@@ -1,0 +1,52 @@
+{
+  "name": "vscode-html-format",
+  "displayName": "HTML Format",
+  "description": "Format HTML documents.",
+  "version": "0.0.1",
+  "publisher": "mohd-akram",
+  "engines": {
+    "vscode": "^1.20.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:handlebars",
+    "onLanguage:html"
+  ],
+  "main": "./out/extension",
+  "icon": "icon.png",
+  "capabilities": {
+    "documentFormattingProvider": "true"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohd-akram/vscode-html-format.git"
+  },
+  "keywords": [
+    "visual studio code",
+    "html",
+    "format"
+  ],
+  "author": "Mohamed Akram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohd-akram/vscode-html-format/issues"
+  },
+  "homepage": "https://github.com/mohd-akram/vscode-html-format#readme",
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6",
+    "tslint": "^5.8.0",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {}
+}
