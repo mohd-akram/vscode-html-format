@@ -48,5 +48,7 @@
     "@types/node": "^7.0.43",
     "@types/mocha": "^2.2.42"
   },
-  "dependencies": {}
+  "dependencies": {
+    "html-format": "^1.0.0"
+  }
 }

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import format from './format';
+import format from 'html-format';
 
 class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
   public provideDocumentFormattingEdits(document: vscode.TextDocument):
@@ -24,7 +24,7 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
     const text = document.getText();
     const range = new vscode.Range(
       document.positionAt(0),
-      document.positionAt(text.length - 1)
+      document.positionAt(text.length)
     );
     return Promise.resolve([
       new vscode.TextEdit(range, format(text, indent, width))
