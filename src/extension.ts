@@ -3,20 +3,14 @@ import format from "html-format";
 
 class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
   public provideDocumentFormattingEdits(
-    document: vscode.TextDocument
+    document: vscode.TextDocument,
+    options: vscode.FormattingOptions
   ): Thenable<vscode.TextEdit[]> {
-    let tabSize = 4;
-    let insertSpaces = true;
+    const { tabSize, insertSpaces } = options;
 
-    const editor = vscode.window.activeTextEditor;
-    if (editor) {
-      tabSize = editor.options.tabSize as number;
-      insertSpaces = editor.options.insertSpaces as boolean;
-    }
     const indent = insertSpaces ? " ".repeat(tabSize) : "\t";
 
-    const lang = document.languageId,
-      uri = document.uri;
+    const { languageId: lang, uri } = document;
     const langConfig = vscode.workspace.getConfiguration(`[${lang}]`, uri);
     const config = vscode.workspace.getConfiguration("editor", uri);
     const width =
