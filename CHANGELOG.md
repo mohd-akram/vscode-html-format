@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.5
+
+- Update html-format to 1.0.2.
+
+## 0.0.4
+
+- Add instructions on how to format a document.
+
 ## 0.0.3
 
 - Update html-format to 1.0.1.
