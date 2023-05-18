@@ -2,7 +2,7 @@
   "name": "vscode-html-format",
   "displayName": "HTML Format",
   "description": "Format HTML documents.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "mohd-akram",
   "engines": {
     "vscode": "^1.78.0"
