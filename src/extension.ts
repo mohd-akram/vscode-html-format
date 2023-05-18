@@ -1,9 +1,10 @@
-import * as vscode from 'vscode';
-import format from 'html-format';
+import * as vscode from "vscode";
+import format from "html-format";
 
 class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
-  public provideDocumentFormattingEdits(document: vscode.TextDocument):
-    Thenable<vscode.TextEdit[]> {
+  public provideDocumentFormattingEdits(
+    document: vscode.TextDocument
+  ): Thenable<vscode.TextEdit[]> {
     let tabSize = 4;
     let insertSpaces = true;
 
@@ -12,14 +13,14 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
       tabSize = editor.options.tabSize as number;
       insertSpaces = editor.options.insertSpaces as boolean;
     }
-    const indent = insertSpaces ? ' '.repeat(tabSize) : '\t';
+    const indent = insertSpaces ? " ".repeat(tabSize) : "\t";
 
-    const lang = document.languageId, uri = document.uri;
+    const lang = document.languageId,
+      uri = document.uri;
     const langConfig = vscode.workspace.getConfiguration(`[${lang}]`, uri);
-    const config = vscode.workspace.getConfiguration('editor', uri);
+    const config = vscode.workspace.getConfiguration("editor", uri);
     const width =
-      langConfig['editor.wordWrapColumn'] ||
-      config.get('wordWrapColumn', 80);
+      langConfig["editor.wordWrapColumn"] || config.get("wordWrapColumn", 80);
 
     const text = document.getText();
     const range = new vscode.Range(
@@ -27,7 +28,7 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
       document.positionAt(text.length)
     );
     return Promise.resolve([
-      new vscode.TextEdit(range, format(text, indent, width))
+      new vscode.TextEdit(range, format(text, indent, width)),
     ]);
   }
 }
@@ -35,15 +36,14 @@ class HTMLDocumentFormatter implements vscode.DocumentFormattingEditProvider {
 export function activate(context: vscode.ExtensionContext) {
   const formatter = new HTMLDocumentFormatter();
   context.subscriptions.push(
-    vscode.languages.registerDocumentFormattingEditProvider(
-      'html', formatter
-    )
+    vscode.languages.registerDocumentFormattingEditProvider("html", formatter)
   );
   context.subscriptions.push(
     vscode.languages.registerDocumentFormattingEditProvider(
-      'handlebars', formatter
+      "handlebars",
+      formatter
     )
   );
 }
 
-export function deactivate() { }
+export function deactivate() {}
