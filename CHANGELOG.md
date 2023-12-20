@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Update html-format to 1.1.4.
+
 ## 0.1.3
 
 - Update html-format to 1.1.3.
