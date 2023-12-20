@@ -51,6 +51,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "html-format": "^1.1.4"
+    "html-format": "^1.1.5"
   }
 }
