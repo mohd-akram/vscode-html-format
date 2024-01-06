@@ -43,7 +43,7 @@
   "homepage": "https://github.com/mohd-akram/vscode-html-format#readme",
   "devDependencies": {
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.6",
     "@types/vscode": "^1.85.0",
     "@vscode/test-electron": "^2.3.8",
     "glob": "^10.3.10",
@@ -51,6 +51,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "html-format": "^1.1.5"
+    "html-format": "^1.1.6"
   }
 }
